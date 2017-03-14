@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`generateInstagramSocialActivity should match snapshot on valid activity 1`] = `
+Object {
+  "ActivityURL": "https://www.instagram.com/p/BGKKqSeoadh/",
+  "AuthorID": "743467152",
+  "AuthorPictureURL": "https://scontent.cdninstagram.com/t51.2885-19/12940036_1025946850808759_670550570_a.jpg",
+  "AuthorRealName": "Sarah Flynt 👑",
+  "AuthorUsername": "himynameis_sarah",
+  "BodyText": "You make me so happy ♥
+#quote #edit #instapic #instagood #picoftheday #love #loml #doubletap #followforfollow #followback #happy #boyfriend #smile @someuser",
+  "ID": "1263869531955242849_743467152",
+  "Network": "instagram",
+  "PostMedia": Array [
+    Object {
+      "MediaType": "image",
+      "URL": "https://scontent.cdninstagram.com/t51.2885-15/s640x640/sh0.08/e35/13381140_104166473340754_1698310139_n.jpg?ig_cache_key=MTI2Mzg2OTUzMTk1NTI0Mjg0OQ%3D%3D.2.l",
+    },
+  ],
+  "Version": "2.0",
+}
+`;

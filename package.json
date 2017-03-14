@@ -1,0 +1,26 @@
+{
+  "name": "intern-js",
+  "version": "0.0.1",
+  "description": "Nuvi intern test",
+  "main": "src/index.js",
+  "scripts": {
+    "build": "babel src/ -d lib",
+    "test": "jest",
+    "test-watch": "jest --watch"
+  },
+  "author": "Nuvi",
+  "private": true,
+  "dependencies": {
+    "amqplib": "^0.5.1",
+    "babel-cli": "^6.23.0",
+    "babel-core": "^6.23.1",
+    "babel-preset-es2015": "^6.22.0",
+    "babel-preset-stage-0": "^6.22.0",
+    "jest": "^19.0.2",
+    "lodash": "^4.17.4"
+  },
+  "jest": {
+    "verbose": true,
+    "bail": true
+  }
+}
