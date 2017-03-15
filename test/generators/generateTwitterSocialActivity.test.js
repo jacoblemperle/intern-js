@@ -3,7 +3,7 @@ import TwitterTwoFixture from '../fixtures/twitterTwo.json';
 import generateTwitterSocialActivity from '../../src/generators/generateTwitterSocialActivity';
 
 describe('generateTwitterSocialActivity', () => {
-  xit('should generate an activity with fixure json', () => {
+  it('should generate an activity with fixure json', () => {
     const activity = generateTwitterSocialActivity(TwitterFixture);
     expect(activity.ActivityURL).toEqual('http://twitter.com/MckeonLutz/statuses/751152691611463680');
     expect(activity.AuthorID).toEqual('id:twitter.com:1386906962');
@@ -15,7 +15,7 @@ describe('generateTwitterSocialActivity', () => {
     expect(activity.BodyText).toEqual('RT @StylishRentals: Love this! \"Modern style Country Villa - Houses for Rent in Almoster\" @airbnb #Travelhttps://t.co/xJ479oYcx9');
   });
 
-  xit('should generate an activity with second fixure json', () => {
+  it('should generate an activity with second fixure json', () => {
     const activity = generateTwitterSocialActivity(TwitterTwoFixture);
     expect(activity.ActivityURL).toEqual('http://twitter.com/JenVento/statuses/794169597222064128');
     expect(activity.AuthorID).toEqual('id:twitter.com:18141787');
@@ -27,10 +27,15 @@ describe('generateTwitterSocialActivity', () => {
     expect(activity.BodyText).toEqual('How women could vote Hillary Clinton into the White House https://t.co/jnFqk44nr4 #imwithher');
   });
 
-  xit('should returned undefined if missing id and body text', () => {
+  it('should returned undefined if missing id and body text', () => {
+      const activity = generateTwitterSocialActivity({});
+      expect(activity).toEqual(undefined);
   });
 
-  xit('should match snapshot on valid activity', () => {
+  it('should match snapshot on valid activity', () => {
+      const activity = generateTwitterSocialActivity(TwitterFixture);
+      expect(activity).toMatchSnapshot();
   });
+
 
 });
