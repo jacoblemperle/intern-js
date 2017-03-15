@@ -1,5 +1,5 @@
-import InstagramFixture from './fixtures/instagram.json';
-import generateInstagramSocialActivity from '../generateInstagramSocialActivity';
+import InstagramFixture from '../fixtures/instagram.json';
+import generateInstagramSocialActivity from '../../src/generators/generateInstagramSocialActivity';
 
 describe('generateInstagramSocialActivity', () => {
   it('should generate an activity with json', () => {

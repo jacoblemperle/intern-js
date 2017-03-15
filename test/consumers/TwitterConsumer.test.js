@@ -1,10 +1,10 @@
-import InstagramConsumer from '../InstagramConsumer';
-import InstagramFixture from '../../generators/__tests__/fixtures/instagram.json';
+import TwitterConsumer from '../../src/consumers/TwitterConsumer';
+import TwitterFixture from '../fixtures/twitter.json';
 
-describe('InstagramConsumer', () => {
-  it('should assertQueue with durable', () => {
+describe('TwitterConsumer', () => {
+  xit('should assertQueue with durable', () => {
     const assertQueueMock = jest.fn();
-    new InstagramConsumer({
+    new TwitterConsumer({
       assertQueue: assertQueueMock,
     }, 'hello');
     expect(assertQueueMock).toBeCalled();
@@ -12,10 +12,10 @@ describe('InstagramConsumer', () => {
     expect(assertQueueMock).toBeCalledWith('hello', { durable: true });
   });
 
-  it('should run transform and not publish on failure', () => {
+  xit('should run transform and not publish on failure', () => {
     const sendToQueueMock = jest.fn();
     const ackMock = jest.fn();
-    const consumer = new InstagramConsumer({
+    const consumer = new TwitterConsumer({
       assertQueue: () => {},
       sendToQueue: sendToQueueMock,
       ack: ackMock,
@@ -26,15 +26,15 @@ describe('InstagramConsumer', () => {
     expect(ackMock.mock.calls.length).toBe(0);
   });
 
-  it('should run transform and not publish on success', () => {
+  xit('should run transform and not publish on success', () => {
     const sendToQueueMock = jest.fn();
     const ackMock = jest.fn();
-    const consumer = new InstagramConsumer({
+    const consumer = new TwitterConsumer({
       assertQueue: () => {},
       sendToQueue: sendToQueueMock,
       ack: ackMock,
     }, 'hello');
-    const rawJSON = JSON.stringify(InstagramFixture);
+    const rawJSON = JSON.stringify(TwitterFixture);
     consumer.onMessage(rawJSON);
     expect(sendToQueueMock).toBeCalled();
     expect(ackMock).toBeCalledWith(rawJSON);
