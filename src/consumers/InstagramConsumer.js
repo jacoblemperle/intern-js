@@ -1,14 +1,21 @@
 import generateInstagramSocialActivity from '../generators/generateInstagramSocialActivity';
 
 export default class InstagramConsumer {
-  constructor (channel, queue) {
+  constructor (channel, consumerQueue, publishQueue) {
     this.channel = channel;
-    this.queue = queue;
+    this.consumerQueue = consumerQueue;
+    this.publishQueue = publishQueue;
     this.setup();
   }
 
   setup () {
-    this.channel.assertQueue(this.queue, { durable: true });
+    this.onMessage = ::this.onMessage;
+    this.channel.assertQueue(this.consumerQueue, { durable: true });
+    this.channel.assertQueue(this.publishQueue, { durable: true });
+  }
+
+  start () {
+    this.channel.consume(this.consumerQueue, this.onMessage);
   }
 
   onMessage (message) {
@@ -22,6 +29,6 @@ export default class InstagramConsumer {
 
   publishSocialActivity (socialActivity) {
     const socialJson = JSON.stringify(socialActivity);
-    this.channel.sendToQueue(this.queue, new Buffer(socialJson));
+    this.channel.sendToQueue(this.publishQueue, new Buffer(socialJson));
   }
 }

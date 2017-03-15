@@ -12,6 +12,10 @@ describe('TwitterConsumer', () => {
     expect(assertQueueMock).toBeCalledWith('hello', { durable: true });
   });
 
+  
+  xit('should run consume with consumerQueue name on start', () => {
+  });
+
   xit('should run transform and not publish on failure', () => {
     const sendToQueueMock = jest.fn();
     const ackMock = jest.fn();
