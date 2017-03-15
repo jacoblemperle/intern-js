@@ -4,6 +4,10 @@ export default class InstagramConsumer {
   constructor (channel, queue) {
     this.channel = channel;
     this.queue = queue;
+    this.setup();
+  }
+
+  setup () {
     this.channel.assertQueue(this.queue, { durable: true });
   }
 
