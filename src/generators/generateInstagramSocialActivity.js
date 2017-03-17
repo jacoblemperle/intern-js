@@ -9,6 +9,7 @@ export default function instagramTransformer (message) {
     });
   }
   const socialActivity = {
+
     ActivityURL: _.get(message, 'link'),
     AuthorID: _.get(message, 'user.id'),
     AuthorPictureURL: _.get(message, 'user.profile_picture'),
